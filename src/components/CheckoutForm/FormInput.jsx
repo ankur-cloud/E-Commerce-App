@@ -13,7 +13,10 @@ const FormInput = ({ name, label }) => {
             {/* Special compomntent belonging ot react hook form which is a self closing and allows us to use any other input or twxxt fields as this Controller */}
 
 
-            <Controller render={({ dog }) => (<TextField {...dog} name={name} label={label} fullWidth required />)} control={control} defaultValue='' />
+            {/* <Controller render={({ dog }) => (<TextField {...dog} name={name} label={label} fullWidth required />)} control={control} defaultValue='' /> */}
+
+
+            <Controller defaultValue='' control={control} name={name} label={label} render={({ field }) => (<TextField {...field} name={name} label={label} fullWidth required />)} />
 
         </Grid>
     </>)

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Typography, Button, Divider } from '@material-ui/core'
-import { Elements, CardElement, ElementConsumer, ElementsConsumer } from '@stripe/react-stripe-js'
+import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js';
 import Review from './Review'
 
@@ -19,7 +19,7 @@ const PaymentForm = ({ checkoutToken, backStep, captureCheckoutHandler, nextStep
 
         const { error, paymentMethod } = await stripe.createPaymentMethod({ type: 'card', card: cardElement });
         if (error) {
-            console.log(error);
+            console.log('[error]', error);
         } else {
             const orderData = {
                 line_items: checkoutToken.live.line_items,
